@@ -64,6 +64,4 @@ public class Taco {
                 ingredients + ", createdAt=" + createdAt + '}';
     }
     
-   
-    
 }
