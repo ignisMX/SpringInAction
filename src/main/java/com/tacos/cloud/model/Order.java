@@ -5,6 +5,7 @@
  */
 package com.tacos.cloud.model;
 
+import java.util.Date;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.NotBlank;
@@ -15,6 +16,8 @@ import org.hibernate.validator.constraints.CreditCardNumber;
  * @author ignis
  */
 public class Order {
+    
+    private Long Id;
     
     @NotBlank(message="Name is required")
     private String name;
@@ -39,6 +42,16 @@ public class Order {
     
     @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
     private String ccCVV;
+    
+    private Date createdAt;
+
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long Id) {
+        this.Id = Id;
+    }
 
     public String getName() {
         return name;
@@ -104,9 +117,19 @@ public class Order {
         this.ccCVV = ccCVV;
     }
 
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
     @Override
     public String toString() {
-        return "Order{" + "name=" + name + ", street=" + street + ", city=" + city + ", state=" + state + ", zip=" + zip + ", ccNumber=" + ccNumber + ", ccExpiration=" + ccExpiration + ", ccCVV=" + ccCVV + '}';
+        return "Order{" + "Id=" + Id + ", name=" + name + ", street=" + street +
+                ", city=" + city + ", state=" + state + ", zip=" + zip + 
+                ", ccNumber=" + ccNumber + ", ccExpiration=" + ccExpiration + 
+                ", ccCVV=" + ccCVV + ", createdAt=" + createdAt + '}';
     }
-    
 }
