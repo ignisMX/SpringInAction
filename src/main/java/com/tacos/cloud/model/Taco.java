@@ -22,7 +22,7 @@ public class Taco {
     private String name;
         
     @Size(min=1, message="Name must choose at leasst 1 ingredient")
-    private List<String> ingredients;
+    private List<Ingredient> ingredients;
 
     private Date createdAt;
 
@@ -42,14 +42,14 @@ public class Taco {
         this.name = name;
     }
 
-    public List<String> getIngredients() {
+    public List<Ingredient> getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<String> ingredients) {
+    public void setIngredients(List<Ingredient> ingredients) {
         this.ingredients = ingredients;
     }
-
+    
     public Date getCreatedAt() {
         return createdAt;
     }

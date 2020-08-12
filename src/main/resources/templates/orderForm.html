@@ -21,28 +21,28 @@ and open the template in the editor.
             </div>
             <h3>Deliver my taco masterpieces to ...</h3>
             <label for="name">Name: </label>
-            <input type="text" th:field="*{name}"/>
-            <span th:if="${#fields.hasErrors('name')}"
+            <input type="text" th:field="*{deliveryName}"/>
+            <span th:if="${#fields.hasErrors('deliveryName')}"
                   th:errors="*{name}">Name Error</span>
             
             <label for="street">Street address: </label>
-            <input type="text" th:field="*{street}"/>
-            <span th:if="${#fields.hasErrors('street')}"
+            <input type="text" th:field="*{deliveryStreet}"/>
+            <span th:if="${#fields.hasErrors('deliveryStreet')}"
                   th:errors="*{street}">Street Error</span>
             
             <label for="city">City:  </label>
-            <input type="text" th:field="*{city}"/>
-            <span th:if="${#fields.hasErrors('city')}"
+            <input type="text" th:field="*{deliveryCity}"/>
+            <span th:if="${#fields.hasErrors('deliveryCity')}"
                   th:errors="*{city}">City Error</span>
             
             <label for="state">State:  </label>
-            <input type="text" th:field="*{state}"/>
-            <span th:if="${#fields.hasErrors('state')}"
+            <input type="text" th:field="*{deliveryState}"/>
+            <span th:if="${#fields.hasErrors('deliveryState')}"
                   th:errors="*{state}">State Error</span>
             
             <label for="zip">Zip code:  </label>
-            <input type="text" th:field="*{zip}"/>
-            <span th:if="${#fields.hasErrors('zip')}"
+            <input type="text" th:field="*{deliveryZip}"/>
+            <span th:if="${#fields.hasErrors('deliveryZip')}"
                   th:errors="*{zip}">Zip Error</span>
             
             <h3>Here's how I'll pay...</h3>

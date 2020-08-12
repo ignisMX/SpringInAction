@@ -6,6 +6,8 @@
 package com.tacos.cloud.model;
 
 import java.util.Date;
+import java.util.List;
+import java.util.ArrayList;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.NotBlank;
@@ -20,19 +22,19 @@ public class Order {
     private Long Id;
     
     @NotBlank(message="Name is required")
-    private String name;
+    private String deliveryName;
     
     @NotBlank(message="Name is required")
-    private String street;
+    private String deliveryStreet;
     
     @NotBlank(message="Name is required")
-    private String city;
+    private String deliveryCity;
     
     @NotBlank(message="Name is required")
-    private String state;
+    private String deliveryState;
     
     @NotBlank(message="Name is required")
-    private String zip;
+    private String deliveryZip;
     
     @CreditCardNumber(message="Not a valid credit card number")
     private String ccNumber;
@@ -43,7 +45,9 @@ public class Order {
     @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
     private String ccCVV;
     
-    private Date createdAt;
+    private Date placeddAt;
+    
+    private List<Taco> tacos = new ArrayList<>();
 
     public Long getId() {
         return Id;
@@ -53,44 +57,44 @@ public class Order {
         this.Id = Id;
     }
 
-    public String getName() {
-        return name;
+    public String getDeliveryName() {
+        return deliveryName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDeliveryName(String deliveryName) {
+        this.deliveryName = deliveryName;
     }
 
-    public String getStreet() {
-        return street;
+    public String getDeliveryStreet() {
+        return deliveryStreet;
     }
 
-    public void setStreet(String street) {
-        this.street = street;
+    public void setDeliveryStreet(String deliveryStreet) {
+        this.deliveryStreet = deliveryStreet;
     }
 
-    public String getCity() {
-        return city;
+    public String getDeliveryCity() {
+        return deliveryCity;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setDeliveryCity(String deliveryCity) {
+        this.deliveryCity = deliveryCity;
     }
 
-    public String getState() {
-        return state;
+    public String getDeliveryState() {
+        return deliveryState;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setDeliveryState(String deliveryState) {
+        this.deliveryState = deliveryState;
     }
 
-    public String getZip() {
-        return zip;
+    public String getDeliveryZip() {
+        return deliveryZip;
     }
 
-    public void setZip(String zip) {
-        this.zip = zip;
+    public void setDeliveryZip(String deliveryZip) {
+        this.deliveryZip = deliveryZip;
     }
 
     public String getCcNumber() {
@@ -117,19 +121,27 @@ public class Order {
         this.ccCVV = ccCVV;
     }
 
-    public Date getCreatedAt() {
-        return createdAt;
+    public Date getPlaceddAt() {
+        return placeddAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
+    public void setPlaceddAt(Date placeddAt) {
+        this.placeddAt = placeddAt;
+    }
+    
+    public void addDesign(Taco taco){
+        this.tacos.add(taco);
     }
 
+    public List<Taco> getTacos() {
+        return tacos;
+    }
+    
     @Override
     public String toString() {
-        return "Order{" + "Id=" + Id + ", name=" + name + ", street=" + street +
-                ", city=" + city + ", state=" + state + ", zip=" + zip + 
+        return "Order{" + "Id=" + Id + ", name=" + deliveryName + ", street=" + deliveryStreet +
+                ", city=" + deliveryCity + ", state=" + deliveryState + ", zip=" + deliveryZip + 
                 ", ccNumber=" + ccNumber + ", ccExpiration=" + ccExpiration + 
-                ", ccCVV=" + ccCVV + ", createdAt=" + createdAt + '}';
+                ", ccCVV=" + ccCVV + ", createdAt=" + placeddAt + '}';
     }
 }

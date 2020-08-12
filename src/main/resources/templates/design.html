@@ -12,12 +12,15 @@ and open the template in the editor.
     <body>
         <h1>Design your taco!</h1>
         <img th:src="@{images/logo.png}"/>
-        <form method="POST" th:object="${design}">
+        <form method="POST" th:object="${taco}">
             <div>
+                <span class="validationError"
+                      th:if="${#fields.hasErrors('ingredients')}"
+                      th:errors="*{ingredients}">Ingredient Error</span>
                 <div id="wraps">
                     <h3>Designate your wrap:</h3>
                     <div th:each="ingredient : ${wrap}">
-                        <input name="ingredients" type="checkbox" th:values="${ingredient.id}"/>
+                        <input name="ingredients" type="checkbox" th:value="${ingredient.id}"/>
                         <span th:text="${ingredient.name}">INGREDIENT</span>
                     </div>
                 </div>
@@ -53,6 +56,9 @@ and open the template in the editor.
             <div>
                 <h3>Name your taco creation:</h3>
                 <input type="text" th:field="*{name}" />
+                <span class="validationError"
+                      th:if="${#fields.hasErrors('name')}" 
+                      th:errors="*{name}">Name Error</span>
                 <button>Submit your taco</button>
             </div>
         </form>
